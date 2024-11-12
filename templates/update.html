@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Example</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.form-container {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+label {
+    font-size: 16px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="number"], input[type="file"], select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.side-by-side {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.input-group {
+    flex: 1;
+}
+
+textarea {
+    resize: vertical;
+}
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="title" value="{{item_data[1]}}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4"required>{{item_data[2]}}</textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" value="{{item_data[4]}}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" name="price" value="{{item_data[3]}}" required>
+                </div>
+
+                <div class="form-group">
+                    <select id="home" name="category"  required>
+                        <option value="home" {% if item_data[6] == 'home' %}selected{% endif %}>Home</option>
+                        <option value="grocery" {% if item_data[6] == 'grocery' %}selected{% endif %}>Grocery</option>
+                        <option value="fashion" {% if item_data[6] == 'fashion' %}selected{% endif %}>Fashion</option>
+                        <option value="electronics" {% if item_data[6] == 'electronics' %}selected{% endif %}>Electronics</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <img src="/static/{{item_data[5]}}" alt="">
+                <label for="file">Upload File:</label>
+                <input type="file" id="file" name="img" value="{{item_data[5]}}">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

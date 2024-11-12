@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Signup</title>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <style>
+        :root {
+            --white: #fff;
+            --text-clr: #000024;
+            --primary: #3e2093;
+            --secondary: #c0c1d2;
+            --input-bg: #f1f1ff;
+            --btn-hvr: #1a0065;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            font-family: 'Open Sans', sans-serif;
+        }
+        body {
+            background-image: url("https://3.bp.blogspot.com/-a4WZ6IXaOLc/XdUrOi3SJ-I/AAAAAAAAABg/6atUxXFjve4U7ByQRtYKZj-iC7CdTWJGACLcBGAsYHQ/w1920-d/wallpaper-de-desktop-heroscreen-art-by-alena-aenami-1920x1080-15.jpg");
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+        .wrapper {
+            width: 100%;
+            padding: 0 10px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .r_form_wrap {
+            width: 500px;
+            max-width: 100%;
+            padding-top: 4%;
+        }
+        .r_form {
+            padding: 40px;
+            border-radius: 3px;
+            background-color: rgba(0, 0, 0, 0.193);
+        }
+        .r_form .input_wrap {
+            width: 100%;
+            margin-bottom: 25px;
+        }
+        .r_form .input_wrap label {
+            display: block;
+        }
+        .r_form .input_wrap .input_item {
+            position: relative;
+            width: 100%;
+        }
+        .r_form .input_wrap .input_item .input {
+            width: 100%;
+            border-radius: 3px;
+            height: 40px;
+            border: 2px solid var(--input-bg);
+            background: var(--input-bg);
+            padding: 10px 20px;
+            padding-left: 50px;
+            transition: 0.5s ease;
+            color: black;
+        }
+        .r_form .input_wrap .input_item .input:focus {
+            border-color: #28a745;
+        }
+        .r_form .input_wrap .input_item .icon {
+            position: absolute;
+            top: 12px;
+            left: 20px;
+            color: var(--secondary);
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            border: 0;
+            background-color: #28a745;
+            padding: 10px;
+            border-radius: 3px;
+            height: 40px;
+            color: var(--white);
+            cursor: pointer;
+            transition: 0.5s ease;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .Signup {
+            padding-left: 50%;
+            color: black;
+            text-decoration: none;
+            font-size: 14px;
+			margin-top: 50%;
+        }
+        .Signup:hover {
+            text-decoration: underline;
+        }
+        .gender-options {
+            display: flex;
+            gap: 15px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+	<div class="r_form_wrap">
+		<div class="r_form">
+			<center><h1>User Sign up</h1></center>
+			<form id="registrationForm" method="post" enctype="multipart/form-data">
+				<div class="input_wrap">
+					<label for="name">Name:</label>
+					<div class="input_item">
+						<span class="icon">
+							<ion-icon name="person-sharp"></ion-icon>
+						</span>
+						<input type="text" id="name" class="input" name="username" required>
+					</div>
+				</div>
+				<div class="input_wrap">
+					<label for="email">Email:</label>
+					<div class="input_item">
+						<span class="icon">
+							<ion-icon name="mail-sharp"></ion-icon>
+						</span>
+						<input type="email" name="email" class="input" id="email" required>
+					</div>
+				</div>
+				<div class="input_wrap">
+					<label for="password">Password:</label>
+					<div class="input_item">
+						<span class="icon">
+							<ion-icon name="key-sharp"></ion-icon>
+						</span>
+						<input type="password" name="password" class="input" id="password" required>
+					</div>
+				</div>
+				<div class="input_wrap">
+					<label for="address">Address:</label>
+					<div class="input_item">
+						<span class="icon">
+							<ion-icon name="reader"></ion-icon>
+						</span>
+						<textarea id="address" name="address" class="input" rows="3" required></textarea>
+					</div>
+				</div>
+				<div class="input_wrap">
+					<label>Gender:</label>
+					<div class="gender-options">
+						<label><input type="radio" name="gender" value="male" required> Male</label>
+						<label><input type="radio" name="gender" value="female"> Female</label>
+					</div>
+				</div>
+				<button type="submit">Sign up</button>
+			</form>
+			<a href="#" class="Signup">Already have an account? Sign In</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

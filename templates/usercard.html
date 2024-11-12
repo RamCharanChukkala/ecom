@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card</title>
+    <link rel="stylesheet" href="usercard.css">
+    <style>
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    background-color: #f4f4f9;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.card-content {
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+p {
+    font-size: 1rem;
+    color: #777;
+}
+
+.quantity-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#quantity {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-cart-btn, .buy-now-btn {
+    width: 45%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-cart-btn {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.add-cart-btn:hover {
+    background-color: #218838;
+}
+
+.buy-now-btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.buy-now-btn:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="https://images.news18.com/ibnlive/uploads/2024/04/img-2-2024-04-03t144922.595-2024-04-1e69a833f14b7b92078759b84ec60b16-3x2.jpg" alt="Product Image" class="product-image">
+        <div class="card-content">
+            <h3>Product Name</h3>
+            <p>Product Description</p>
+            <div class="quantity-container">
+                <label for="quantity">Quantity:</label>
+                <select id="quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </div>
+        <div class="card-buttons">
+            <button class="add-cart-btn">Add to Cart</button>
+            <button class="buy-now-btn">Buy Now</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,2 @@
+secret_key=b'\x81\x17x5\xbcQ*\x8a\x0f\xe8-.r\xe14'
+salt='xyz'

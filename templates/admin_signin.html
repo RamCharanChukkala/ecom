@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin signin page</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='addmin_signin.css')}}">
+</head>
+<body>
+    <form method="post">
+        <div class="in">
+            <h1>SIGN IN</h1>
+            <input type="text" name="email" placeholder="Enter Email" style="text-align: center; border-radius: 5px;"><br>
+            <br>
+            <input type="text" name="password" placeholder="Enter Password"
+                style="text-align: center; border-radius: 5px;"><br>
+            <br>
+            <button style="border-radius:25px;">Submit</button>
+            <a style="color: black;" href="{{url_for('admin_signup')}}">Don't have an account Click here..?</a>
+        </div>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin signup page</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='admin_signup.css')}}">
+</head>
+<body>
+    <div class="parent">
+        <form method="POST" enctype="multipart/form-data" >
+        <h1>Sign Up</h1>
+        <div>
+            <label >Enter Name:</label> <br>
+            <input type="text" class="name" name="username" placeholder="Enter your Name" required>
+        </div>
+        <div>
+            <label>Enter E-mail:</label><br>
+            <input type="email" class="email" name="email" placeholder="Ex:Charan123@gmail.com" required>
+        </div>
+        <div>
+            <label>Address:</label> <br>
+            <input type="text" name="address" placeholder="Place" required>
+        </div>
+        <div>
+            <label>Enter password:</label> <br>
+            <input type="password" class="password" name="password" placeholder="Enter Secret key" required>
+        </div>
+        <div>
+            <label>Choose file:</label> <br>
+            <input type="file" placeholder="File" class="file" name="image">
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+        </form>
+        <p><a href="{{url_for('alogin')}}">Already have an Account</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin_otp page</title>
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+    <link rel="stylesheet" href="{{url_for('static',filename='admin_otp.css')}}">
+</head>
+<body>
+    <div class="parent">
+    <form method="POST">
+        <div>
+            <h1>Email Verification</h1>
+            <input type="text" maxlength="6" name="otp" placeholder="Enter OTP Here" class="otp-input" required><br> <br>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    </div>
+</body>
+</html>

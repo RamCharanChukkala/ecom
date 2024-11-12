@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>additem page</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='additem.css')}}">
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+    <div>
+        <p>
+            <label for="">Name:</label>
+            <input name="title" type="text" placeholder="Title of the item">
+        </p>
+        <p>
+            <label for="">Description</label>
+            <textarea name="description" id=""></textarea>
+        </p>
+        <p>
+            <label for="">Quantity</label>
+            <input name="quantity" style="padding: 1%;" type="text">
+            <label for="">Price</label>
+            <input name="price" style="padding: 1%;" type="text">
+        </p>
+        <p>
+            <select name="category" id="category">
+                <option value="home">Home</option>
+                <option value="Grocery">Grocery</option>
+                <option value="Fashion">Fashion</option>
+                <option value="electronics">Electronics</option>
+            </select>
+        </p>
+        <p>
+        <input type="file" name="file" placeholder="Choose File">
+        </p>
+        <button>Submit</button>
+    </div>
+    </form>
+</body>
+</html>

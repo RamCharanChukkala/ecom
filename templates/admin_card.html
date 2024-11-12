@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Card with Multiple Buttons</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Container for the grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Card styling */
+  .card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    background-color: #fff;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .card-description {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 10px;
+  }
+
+  .card-button {
+    flex: 1;
+    padding: 10px 0;
+    font-size: 1em;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+  }
+
+  .view-button {
+    background-color: #007bff;
+  }
+  .view-button:hover {
+    background-color: #0056b3;
+  }
+
+  .update-button {
+    background-color: #28a745;
+  }
+  .update-button:hover {
+    background-color: #218838;
+  }
+
+  .delete-button {
+    background-color: #dc3545;
+  }
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+</style>
+</head>
+<body>
+
+<div class="card-grid">
+{% for i in itemsdata %}
+  <div class="card">
+    <img src="/static/{{i[2]}}" alt="Card Image">
+    <div class="card-content">
+      <h2 class="card-title">{{i[1]}}</h2>
+      <h2 class="card-id">{{i[0]}}</h2>
+      <h2>{{i[3]}}</h2>
+      <div class="button-group">
+        <a href="{{ url_for('view_item', itemid=i[0]) }}" class="card-button view-button">View</a>
+        <a href="{{ url_for('update_item', itemid=i[0]) }}" class="card-button update-button">Update</a>
+        <a href="{{ url_for('delete_item', itemid=i[0]) }}" class="card-button delete-button">Delete</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+</body>
+</html>

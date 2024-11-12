@@ -1,0 +1,30 @@
+body{
+    background-image: url('https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/5773994/cover_image/regular_1708x683/0422_Ecommerce_microinteractions_Zara_Newsletter___blog-b1b2b6cde92a78c7f6e7fd3659c6a52c.png');
+    margin: 0%;
+    overflow: hidden;
+    color: white;
+}
+.parent{
+    text-align: center;
+    margin-top: 13%;
+    padding-bottom: 13%;
+    margin-left: 30%;
+    margin-right: 30%;
+    background-color: #242d3e;
+}
+
+.parent div{
+    margin: 2%;
+}
+input{
+    padding: 1%;
+    color: #fbfcfd;
+    background-color: #242d3e;
+} 
+  
+button{
+    padding: 1%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+

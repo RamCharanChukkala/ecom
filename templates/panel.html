@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Navbar Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            position: sticky;
+            background-color: #2c3e50;
+            display: flex;
+            top: 0;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            z-index: 1;
+            /* background-color: rgba(44, 62, 80, 0); 
+            transition: background-color 0.3s ease; */
+        }
+
+        .navbar-left,
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-item {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .nav-item:hover {
+            background-color: #34495e;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .dropbtn {
+            background-color: #2c3e50;
+            color: white;
+            padding: 14px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #34495e;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .profile {
+            margin-right: 10px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 8px 12px;
+            margin-left: 5px;
+            border: none;
+            background-color: #e74c3c;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .search-bar button:hover {
+            background-color: #c0392b;
+        }
+
+        .card {
+            border: none;
+        }
+
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .carded {
+            width: 100%;
+            padding: 15px;
+            margin: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .carded-content h3 {
+            margin-bottom: 8px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .carded-content p {
+            font-size: 1rem;
+            color: #777;
+            margin: 4px 0;
+        }
+
+        .quantity-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        #quantity {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .carded-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .add-cart-btn {
+        background-color: #ff9800; /* Changed to a vibrant orange */
+        color: #fff;
+        border: none;
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    .add-cart-btn:hover {
+        background-color: #fb8c00; /* Slightly darker orange for hover effect */
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px); /* Lifting effect on hover */
+    }
+
+    /* Buy Now button */
+    .buy-now-btn {
+        background-color: #2196f3; /* Changed to a blue shade */
+        color: #fff;
+        border: none;
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    .buy-now-btn:hover {
+        background-color: #1e88e5; /* Darker blue for hover effect */
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px); /* Lifting effect on hover */
+    }
+        .mail{
+            margin: 1%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="{{url_for('panel')}}" class="nav-item">Home</a>
+            <a href="#" class="nav-item">Contact us</a>
+            {% if session.get('user') %}
+            <a href="{{url_for('viewcart')}}" class="nav-item">View cart</a>
+            <a href="{{url_for('orders')}}" class="nav-item">My Orders</a>
+            {% endif %}
+            <div class="dropdown">
+                <button class="dropbtn">Category</button>
+                <div class="dropdown-content">
+                    <a href="{{url_for('dashboard',ctype='home')}}">Home</a>
+                    <a href="{{url_for('dashboard',ctype='grocery')}}">Grocery</a>
+                    <a href="{{url_for('dashboard',ctype='fashion')}}">Fashion</a>
+                    <a href="{{url_for('dashboard',ctype='electronics')}}">Electronics</a>
+                </div>
+            </div>
+            {% if not session.get('user') %}
+            <div class="dropdown">
+                <button class="dropbtn">Signup</button>
+                <div class="dropdown-content">
+                    <a href="{{url_for('admin_signup')}}">Admin Signup</a>
+                    <a href="{{url_for('user_signup')}}">User Signup</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Login</button>
+                <div class="dropdown-content">
+                    <a href="{{url_for('alogin')}}">Admin login</a>
+                    <a href="{{url_for('user_login')}}">User Login</a>
+                </div>
+            </div>
+            {% endif %}
+            {% if session.get('user') %}
+            <a href="{{url_for('userlogout')}}" class="nav-item">Logout</a>
+            {% endif %}
+        </div>
+        <div class="navbar-right">
+            <p class="mail" style="color: white; font-size: small;">{{session.get('user')}}</p>
+           <abbr title="{{session.get('user')}}"> <i style="color: white;" class="fa-solid fa-user"></i></abbr>
+            <form action="{{url_for('search')}}" method="POST">
+                <div class="search-bar">
+                    <input type="text" name="sname" placeholder="Search...">
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            {% if itemsdata %}
+            {% for i in itemsdata %}
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="carded">
+                    <img src="/static/{{i[2]}}" alt="Product Image" class="product-image">
+                    <div class="carded-content">
+                        <h3>{{i[0]}}</h3>
+                        <p>{{i[2]}}</p>
+                        <p>price:{{i[3]}}</p>
+                        <form action="{{url_for('pay',itemid=i[0],name=i[1],price=i[3])}}" method="post">
+                            <div class="quantity-container">
+                                <label for="quantity">Quantity:</label>
+                                <select id="quantity" name="qyt"> <!-- Added name attribute here -->
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                    </div>
+                    <div class="carded-buttons">
+                        <!-- Add to Cart as a link -->
+                        <a href="{{url_for('addcart', itemid=i[0])}}" class="add-cart-btn">Add to Cart</a>
+                        
+                        <!-- Buy Now as a submit button within the form -->
+                        <button type="submit" class="buy-now-btn">Buy Now</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

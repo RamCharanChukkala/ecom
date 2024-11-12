@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Center the card on the page */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+
+        /* Card container styling */
+        .card {
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Image styling */
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Card content styling */
+        .card-content {
+            padding: 16px;
+        }
+
+        /* Product title styling */
+        .card-content .title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        /* Other product details styling */
+        .card-content p {
+            margin: 5px 0;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Button container for layout consistency */
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: space-between;
+        }
+
+        /* Button styling */
+        .button,
+        .button1 {
+            flex: 1;
+            padding: 10px;
+            font-size: 0.9rem;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            min-width: 45%;
+        }
+
+        .button {
+            background-color: #dc3545;
+        }
+
+        .button:hover {
+            background-color: #c82333;
+        }
+
+        .button1 {
+            background-color: #28a745;
+        }
+
+        .button1:hover {
+            background-color: #218838;
+        }
+
+        /* Link styling */
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <!-- Product Image -->
+        <div>
+            <a href="{{url_for('description', itemid=data[0])}}">
+                <img src="/static/{{data[6]}}" alt="Product Image">
+            </a>
+        </div>
+
+        <!-- Product Details -->
+        <div class="card-content">
+            <p class="title">{{data[1]}}</p>
+            <p><strong>ID:</strong> {{data[0]}}</p>
+            <p><strong>Item ID:</strong> {{data[2]}}</p>
+            <p><strong>Description:</strong> {{data[3]}}</p>
+            <p><strong>Price:</strong> ${{data[4]}}</p>
+            <p><strong>Available Stock:</strong> {{data[5]}}</p>
+
+            <!-- Button Options -->
+            <div class="button-container">
+                {% if session.get('user') %}
+                    <a href="{{url_for('addreview', itemid=data[0])}}">
+                        <button class="button1">Add Review</button>
+                    </a>
+                {% endif %}
+                <button class="button">Add to Cart</button>
+                <a href="{{url_for('readreview',itemid=data[0])}}">
+                    <button class="button">Read Review</button>
+                </a>
+                <a href="#">
+                    <button class="button1">Back</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% for i in data2 %}
+    <label for="">review: {{i[1]}}</label>
+    <label for="">title: {{i[6]}}</label>
+    <label for="">rating: {{i[5]}}</label>
+    <label for="">review: {{i[3]}}</label>
+    {%endfor%}
+</body>
+
+</html>
